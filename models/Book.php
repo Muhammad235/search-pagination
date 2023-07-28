@@ -43,36 +43,7 @@ class Book
         return $row['numrows'];
     }
     
-
-    // public function get_search_result($page_number, $search_query) {
     
-    //     // Setting the number of records per page
-    //     $records_per_page = 5;
-    
-    //     // Calculating the start from value
-    //     $start = ($page_number - 1) * $records_per_page;
-    
-    //     // Prepare the query with placeholders for bound parameters
-    //     $query = "SELECT * FROM " . $this->table_name . " WHERE title LIKE ? OR author LIKE ? LIMIT ?, ?";
-    //     $stmt = $this->conn->prepare($query);
-    
-    //     // Bind parameters to the prepared statement
-    //     $search_param = "%" . $search_query . "%";
-    //     $stmt->bind_param("ssii", $search_param, $search_param, $start, $records_per_page);
-    
-    //     // Execute the prepared statement
-    //     $stmt->execute();
-    
-    //     // Get the result
-    //     $result = $stmt->get_result();
-    
-    //     // Close the statement
-    //     $stmt->close();
-    
-    //     return $result;
-    // }
-
-
     public function get_search_result($page_number, $search_query) {
         // Assuming you have already established a database connection ($conn)
     

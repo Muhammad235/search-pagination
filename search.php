@@ -13,8 +13,8 @@ $search_book = new Book($connection);
 if ($_SERVER['REQUEST_METHOD'] === "GET" && isset($_GET['q']) && isset($_GET['p'])) {
 
     // query parameters
-    $search_query = htmlspecialchars($_GET['q']);
-    $page_number = htmlspecialchars($_GET['p']);
+    $search_query = htmlspecialchars(strip_tags($_GET['q']));
+    $page_number = htmlspecialchars(strip_tags($_GET['p']));
     
     $data = $search_book->get_search_result($page_number, $search_query);
 
@@ -45,6 +45,16 @@ if ($_SERVER['REQUEST_METHOD'] === "GET" && isset($_GET['q']) && isset($_GET['p'
             "message" => "Search results returned successfully."
         ));
 
+    }else {
+            // No search results found
+    http_response_code(404); // Not Found
+
+    echo json_encode(array(
+        "status" => 404,
+        "search_result" => [],
+        "total_pages" => 0,
+        "message" => "No results found."
+    ));
     }
 
 }else {
