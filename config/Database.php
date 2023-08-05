@@ -13,7 +13,8 @@ class Database
     //connect method
     public function connect(){
         $this->hostname = 'localhost';
-        $this->dbname = 'techstars_library';
+        // $this->dbname = 'techstars_library';
+        $this->dbname = 'bookslab';
         $this->username = 'root';
         $this->password = '';
 
@@ -22,13 +23,13 @@ class Database
         if ($this->conn->connect_errno) {
             die("Connection failed: ". $this->conn->connect_error);
         }else {
-            // print("conneted");
+            print("conneted");
             return $this->conn;
         }
     } 
 }
 
 
-// $db = new Database;
+$db = new Database;
 
-// $db->connect();
+$db->connect();
